@@ -43,3 +43,4 @@ public class WaveConfig : ScriptableObject
         return moveSpeed;
     }
 }
+
