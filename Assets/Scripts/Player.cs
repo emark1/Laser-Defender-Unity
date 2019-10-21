@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField] float laserSpeed = 100f;
     [SerializeField] float firingPeriod = 2f;
 
+    [Header("Life and Death")]
+    [SerializeField] float playerHealth = 1000f;
+
     Coroutine firingCoroutine;
 
     float xMinimum;
@@ -75,6 +78,22 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(3);
         Debug.Log("OHBOY");
     }
+
+    private void ProcessHit(DamageDealer damageDealer) {
+        playerHealth -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (playerHealth <= 0) {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
+        ProcessHit(damageDealer);
+    }
+
+
 
 
 }
