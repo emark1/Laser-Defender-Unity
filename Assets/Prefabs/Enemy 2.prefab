@@ -111,9 +111,37 @@ MonoBehaviour:
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
+  hello: 3
+  explosions:
+  - {fileID: 8300000, guid: b7a51ab240050d3408433f331dff6b01, type: 3}
+  - {fileID: 8300000, guid: 01f1e043487c3b94bad12accb741c756, type: 3}
+  - {fileID: 8300000, guid: 401ab34d6f54c944783c330438212e72, type: 3}
+  - {fileID: 8300000, guid: 86224cded5bfac74cb5e9d57a1762993, type: 3}
+  - {fileID: 8300000, guid: a4a5308a566e12f49af043d145ee0e52, type: 3}
+  - {fileID: 8300000, guid: efc5ce494f577ee489ea4d3af8d74687, type: 3}
+  - {fileID: 8300000, guid: a87c7385a65a0ee41b07387504e65a3b, type: 3}
+  - {fileID: 8300000, guid: 6595e5e044434ec4095f126c3255e35a, type: 3}
+  - {fileID: 8300000, guid: 7683e687034ebb34582779658abbdfe3, type: 3}
+  - {fileID: 8300000, guid: 841855b697b98f44b94a29e7a122dad6, type: 3}
+  - {fileID: 8300000, guid: d1dca8d941152d145908d99e77da07a9, type: 3}
+  - {fileID: 8300000, guid: 89854363138758a48b7f5ca9d4e33c2f, type: 3}
+  - {fileID: 8300000, guid: 7fc8cca5aaeefc94baa5f797345dab02, type: 3}
+  - {fileID: 8300000, guid: 5ef66841517d5e145b4c7a8ad9db5a43, type: 3}
+  - {fileID: 8300000, guid: ae635cbb23d338d419ec1975b28e5675, type: 3}
+  - {fileID: 8300000, guid: cf6423c90adac01458fd2e618ca69399, type: 3}
+  - {fileID: 8300000, guid: 86ab0e624a0544c418d52b062a0f2c5f, type: 3}
+  - {fileID: 8300000, guid: 1bd7c55f91c022e48a1121eafa18aab6, type: 3}
+  - {fileID: 8300000, guid: 9b91abd31450ed447899dc5d92c45840, type: 3}
+  - {fileID: 8300000, guid: 016924a1673472a4d989454d1be954ad, type: 3}
+  explosion: {fileID: 8966202315517712520, guid: 37b44a68312e2604f8a4b7771305b3fa,
+    type: 3}
   enemyLaserPrefab: {fileID: 7732352099310479799, guid: 24e1148f9174f004ebd82d7e60187984,
     type: 3}
   enemyLaserSpeed: 10
+  laserSounds:
+  - {fileID: 8300000, guid: 04b416fa7cc766748b2d5f6f5948dd88, type: 3}
+  - {fileID: 8300000, guid: 8ee766a92040b2046808bfab9747e46f, type: 3}
+  enemyLaserVolume: 0.163
 --- !u!60 &4634614828166265122
 PolygonCollider2D:
   m_ObjectHideFlags: 0

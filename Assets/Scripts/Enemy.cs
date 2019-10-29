@@ -9,9 +9,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
+    [SerializeField] float hello = 3f;
+    [SerializeField] AudioClip[] explosions;
+    [SerializeField] GameObject explosion;
+
 
     [SerializeField] GameObject enemyLaserPrefab;
     [SerializeField] float enemyLaserSpeed = 10f;
+    [SerializeField] AudioClip[] laserSounds;
+    [SerializeField] [Range(0,1)] float enemyLaserVolume = 0.75f;
 
 
     // Start is called before the first frame update
@@ -37,6 +43,8 @@ public class Enemy : MonoBehaviour
     private void Fire() {
         GameObject laser = Instantiate(enemyLaserPrefab, transform.position, Quaternion.identity) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -enemyLaserSpeed);
+        AudioClip audioClip = laserSounds[UnityEngine.Random.Range(0, laserSounds.Length)];
+        AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position, enemyLaserVolume);
 
     }
 
@@ -49,7 +57,17 @@ public class Enemy : MonoBehaviour
         health -= damageDealer.GetDamage();
         damageDealer.Hit();
         if (health <= 0) {
-            Destroy(gameObject);
+            Destruction();
         }
+    }
+
+    private void Destruction() {
+        GameObject deathVFX = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+        Destroy(deathVFX, 1f);
+        Destroy(gameObject);
+        AudioClip audioClip = explosions[UnityEngine.Random.Range(0, explosions.Length)];
+        AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position);
+        
+        
     }
 }
