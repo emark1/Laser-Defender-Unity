@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     Coroutine firingCoroutine;
 
+    // Variables
     float xMinimum;
     float xMaximum;
     float yMinimum;
