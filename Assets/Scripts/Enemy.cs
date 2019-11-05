@@ -50,6 +50,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
         ProcessHit(damageDealer);
     }
 
@@ -64,10 +65,10 @@ public class Enemy : MonoBehaviour
     private void Destruction() {
         GameObject deathVFX = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
         Destroy(deathVFX, 1f);
-        Destroy(gameObject);
+
         AudioClip audioClip = explosions[UnityEngine.Random.Range(0, explosions.Length)];
         AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position);
-        
+        Destroy(gameObject);
         
     }
 }

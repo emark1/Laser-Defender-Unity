@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -90,9 +91,16 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         AudioSource.PlayClipAtPoint(takeDamageSFX, Camera.main.transform.position);
         if (playerHealth <= 0) {
-            Destroy(gameObject);
-            AudioSource.PlayClipAtPoint(playerDeathSFX, Camera.main.transform.position);
+            PlayerDeath();
         }
+    }
+
+    private void PlayerDeath() {
+        // FindObjectOfType<Level>().LoadGameOver();
+        Destroy(gameObject);
+        AudioSource.PlayClipAtPoint(playerDeathSFX, Camera.main.transform.position);
+
+        // SceneManager.LoadScene("GameOver");
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
