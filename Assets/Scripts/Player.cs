@@ -96,11 +96,9 @@ public class Player : MonoBehaviour
     }
 
     private void PlayerDeath() {
-        // FindObjectOfType<Level>().LoadGameOver();
+        FindObjectOfType<Level>().LoadGameOver();
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(playerDeathSFX, Camera.main.transform.position);
-
-        // SceneManager.LoadScene("GameOver");
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
