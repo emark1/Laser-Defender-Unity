@@ -5,25 +5,33 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] float health = 100;
+    [Header("Attack")]
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
-    [SerializeField] float hello = 3f;
-    [SerializeField] AudioClip[] explosions;
-    [SerializeField] GameObject explosion;
-
-
     [SerializeField] GameObject enemyLaserPrefab;
     [SerializeField] float enemyLaserSpeed = 10f;
     [SerializeField] AudioClip[] laserSounds;
     [SerializeField] [Range(0,1)] float enemyLaserVolume = 0.75f;
+    
+
+    [Header("Life and Death")]
+    [SerializeField] float health = 100;
+    [SerializeField] AudioClip[] explosions;
+    [SerializeField] GameObject explosion;
+    [SerializeField] int pointWorth = 10;
+
+
+
+
+    GameSession gameSession;
 
 
     // Start is called before the first frame update
     void Start()
     {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     // Update is called once per frame
@@ -65,7 +73,7 @@ public class Enemy : MonoBehaviour
     private void Destruction() {
         GameObject deathVFX = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
         Destroy(deathVFX, 1f);
-
+        gameSession.AddToScore(pointWorth);
         AudioClip audioClip = explosions[UnityEngine.Random.Range(0, explosions.Length)];
         AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position);
         Destroy(gameObject);

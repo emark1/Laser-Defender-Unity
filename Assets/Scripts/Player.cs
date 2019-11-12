@@ -107,6 +107,10 @@ public class Player : MonoBehaviour
         ProcessHit(damageDealer);
     }
 
+    public float GetHealth() {
+        return playerHealth;
+    }
+
 
 
 

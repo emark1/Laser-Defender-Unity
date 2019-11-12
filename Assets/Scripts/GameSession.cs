@@ -20,9 +20,15 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public int GetScore() {
+        return score;
+    }
+
+    public void AddToScore(int scoreValue) {
+        score += scoreValue;
+    }
+
+    public void ResetGame() {
+        Destroy(gameObject);
     }
 }
