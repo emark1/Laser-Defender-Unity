@@ -109,11 +109,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e005ef6edda051f47b8fcc0dadc6f623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
-  hello: 3
+  enemyLaserPrefab: {fileID: 7732352099310479799, guid: 24e1148f9174f004ebd82d7e60187984,
+    type: 3}
+  enemyLaserSpeed: 10
+  laserSounds:
+  - {fileID: 8300000, guid: 04b416fa7cc766748b2d5f6f5948dd88, type: 3}
+  - {fileID: 8300000, guid: 8ee766a92040b2046808bfab9747e46f, type: 3}
+  enemyLaserVolume: 0.163
+  health: 100
   explosions:
   - {fileID: 8300000, guid: b7a51ab240050d3408433f331dff6b01, type: 3}
   - {fileID: 8300000, guid: 01f1e043487c3b94bad12accb741c756, type: 3}
@@ -137,13 +143,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 016924a1673472a4d989454d1be954ad, type: 3}
   explosion: {fileID: 8966202315517712520, guid: 37b44a68312e2604f8a4b7771305b3fa,
     type: 3}
-  enemyLaserPrefab: {fileID: 7732352099310479799, guid: 24e1148f9174f004ebd82d7e60187984,
-    type: 3}
-  enemyLaserSpeed: 10
-  laserSounds:
-  - {fileID: 8300000, guid: 04b416fa7cc766748b2d5f6f5948dd88, type: 3}
-  - {fileID: 8300000, guid: 8ee766a92040b2046808bfab9747e46f, type: 3}
-  enemyLaserVolume: 0.163
+  pointWorth: 10
 --- !u!60 &4634614828166265122
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -224,4 +224,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f0201d4cc80914bb6b65e4ce2ce956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10000
+  damage: 1

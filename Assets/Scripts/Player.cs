@@ -16,9 +16,10 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip laserSound;
 
     [Header("Life and Death")]
-    [SerializeField] float playerHealth = 1000f;
+    [SerializeField] float playerHealth = 5f;
     [SerializeField] AudioClip takeDamageSFX;
     [SerializeField] AudioClip playerDeathSFX;
+    [SerializeField] int lives = 3;
 
 
     Coroutine firingCoroutine;
@@ -96,10 +97,21 @@ public class Player : MonoBehaviour
     }
 
     private void PlayerDeath() {
-        FindObjectOfType<Level>().LoadGameOver();
+        lives = lives -1;
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(playerDeathSFX, Camera.main.transform.position);
+        if (lives <= 0) {
+            FindObjectOfType<Level>().LoadGameOver();
+        } else {
+            
+        }
     }
+
+    // IEnumerator WaitAndResurrect() {
+    //     yield return new WaitForSeconds(2);
+    //     playerHealth = 5f;
+    //     Instantiate(Player player, transform.position, Quaternion.identity) as GameObject;
+    // }
 
     private void OnTriggerEnter2D(Collider2D other) {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
