@@ -105,6 +105,7 @@ MonoBehaviour:
   playerHealth: 1000
   takeDamageSFX: {fileID: 8300000, guid: bf9066eb016370545ab579842ed19b4b, type: 3}
   playerDeathSFX: {fileID: 8300000, guid: 7bc7cbbdccd7d5a449ca9536b389ca17, type: 3}
+  lives: 3
 --- !u!60 &-8099859063129078702
 PolygonCollider2D:
   m_ObjectHideFlags: 0
